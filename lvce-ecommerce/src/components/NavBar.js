@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import logo from '../media/logo.png';
 import Button from '@mui/material/Button';
+import CartWidget from './CartWidget/CartWidget';
 
 export default function NavBar() {
   return (
@@ -21,6 +22,10 @@ export default function NavBar() {
               <Button variant="outlined">Nosotros</Button>
               <Button variant="outlined">Contacto</Button>
             </div>
+            <Button>
+              <CartWidget/>
+            </Button>
+
         </Toolbar>
       </AppBar>
     </Box>

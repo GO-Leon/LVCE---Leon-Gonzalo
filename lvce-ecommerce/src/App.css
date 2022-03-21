@@ -11,7 +11,7 @@
 .navBar{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #fcabae;
 }
 .navLogo{
@@ -29,4 +29,32 @@
   color: whitesmoke;
 }
 
+.cartLogo{
+  max-height: 2rem;
+}
+
+.navCart{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navCart p{
+  font-size: x-large;
+  color: whitesmoke;
+
+}
+
+
+.cardContainer{
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.css-1t6e9jv-MuiCardActions-root{
+  justify-content: center;
+}
 
