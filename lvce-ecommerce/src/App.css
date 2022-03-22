@@ -58,3 +58,20 @@
   justify-content: center;
 }
 
+.countContainer{
+  background-color: #dddddd;;
+  width: 100%;
+
+}
+.countContainer__div{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.addCartButton{
+  margin-bottom: 1rem;
+}
+
+

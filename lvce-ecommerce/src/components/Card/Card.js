@@ -4,6 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import ItemCount from '../ItemCount';
+
+const onAdd = (totalItem) => {
+  alert(`Agregaste ${totalItem} productos`);
+};
 
 export default function MultiActionAreaCard(props) {
   return (
@@ -25,9 +30,7 @@ export default function MultiActionAreaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Agregar
-        </Button>
+      <ItemCount onAdd={onAdd} />
       </CardActions>
     </Card>
   );
