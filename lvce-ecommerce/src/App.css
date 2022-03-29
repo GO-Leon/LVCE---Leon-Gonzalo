@@ -54,6 +54,13 @@
   justify-content: space-around;
 }
 
+.cardContainer img{
+  max-width: 90%;
+  max-height: 10rem;
+  min-width: 90%;
+  min-height: 10rem;
+}
+
 .css-1t6e9jv-MuiCardActions-root{
   justify-content: center;
 }

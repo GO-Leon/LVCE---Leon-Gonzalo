@@ -2,13 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 
-//import './styles/ItemCount.css';
-
 const ItemCount = ({ onAdd }) => {
   const initial = 1;
   const stock = 4; 
 
-  //hook de estado
+ 
   const [totalItem, setTotalItem] = useState(initial);
 
   const addItem = (num) => {

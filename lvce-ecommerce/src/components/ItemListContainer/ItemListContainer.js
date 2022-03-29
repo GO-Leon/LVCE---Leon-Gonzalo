@@ -1,15 +1,52 @@
-import Card from '../Card/Card'
+import { dividerClasses } from '@mui/material';
+import React,{useState, useEffect} from 'react'
+import ItemCard from '../Item'
+import { itemList } from './ItemList'
 
-const ItemList = () => {
+const ProductList = () => {
+    const [items, setItems] = useState([]);
 
-    return(
+    const getProducts = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(itemList);
+        }, 2000);
+      });
+
+      const getItemList = async () => {
+        try {
+          const res = await getProducts;
+          console.log('Productos cargados con exito')
+          setItems(res);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+    useEffect(() => {
+        getItemList();
+      }, []);
+      
+
+    return (
         <div className="cardContainer">
-            <Card img='' title='Sarten' price={1000} detail='Sarten con mango'/>
-            <Card img='' title='Cacerola' price={3000} detail='Cacerola de 28cm'/>
-            <Card img='' title='Bifera' price={2500} detail='Dimensiones ideales para familias numerosas'/>
-            <Card img='' title='Flip' price={2000} detail='Cocina de ambos lados, super facil'/>
+            <h2>Productos Destacados</h2>
+            {items.map( ( item ) => {
+                const {id} = item
+                return(
+                    <ItemCard props={item} key={id}/>
+                )
+            })}
         </div>
-    ) 
+
+
+      );
+
+
+
+
+
+
+
 }
 
-export default ItemList;
+export default ProductList
