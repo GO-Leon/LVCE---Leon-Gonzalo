@@ -81,4 +81,41 @@
   margin-bottom: 1rem;
 }
 
+.detailItems__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ecebd7;
+  max-width: 100%;
+  min-width: 100%;
+  margin-top: 1rem;
+}
+
+.detailItems__container img{
+  max-width: 30rem;
+  max-height: 30rem;
+  border: solid 4px #fcabae;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.detailItems__container--column{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.detailItems__buy{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 80%;
+  border-radius: 1rem;
+}
+
+
 
