@@ -18,15 +18,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
+  color: whitesmoke;
 }
 .navItems{
   display: flex;
   flex-flow: row wrap;
+  min-width: 50%;
+  max-width: 50%;
+  justify-content: space-around;
 }
 
-.navItems button{
-  margin-left: 2rem;
+.navItems a{
   color: whitesmoke;
+  text-decoration: none;
+  min-width: 100%;
+  max-width: 100%;
+  font-size: 1rem;
+
 }
 
 .cartLogo{
@@ -49,16 +58,57 @@
 .cardContainer{
   margin-top: 1rem;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
+.cardContainer__div{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 90%;
+  max-width: 90%;
+}
+
+.cardContent__detail{
+  max-height: 90%;
+  min-height: 90%;
+}
+
+.cardContent__detail button{
+  text-decoration: none;
+  background-color: #fcabae;
+}
+
+.cardContent__detail button a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.cardContent__detail button:hover{
+  text-decoration: none;
+  background-color: #b5787a;
+}
+
+.cardContent__detail button a:hover{
+  text-decoration: none;
+  color: black;
+}
+
 .cardContainer img{
   max-width: 90%;
-  max-height: 10rem;
   min-width: 90%;
   min-height: 10rem;
+  max-height: 10rem;
+  padding-top: 1rem;
+}
+
+
+.css-1097d9j-MuiPaper-root-MuiCard-root{
+  min-height: 10px;
+  max-height: 10px;
 }
 
 .css-1t6e9jv-MuiCardActions-root{
@@ -117,5 +167,41 @@ align-items: center;
   border-radius: 1rem;
 }
 
+ul.productColor {
+  padding-left: 0px;
+  list-style: none;
+  margin: 10px 0px;
+  display: flex;
+}
+
+ul.productColor li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.contact__column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 20rem;
+  margin-top: 4rem;
+}
+
+.contact__row{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 20%;
+}
+
+.contact__row img{
+  max-width: 4rem;
+  min-width: 4rem;
+}
 
 

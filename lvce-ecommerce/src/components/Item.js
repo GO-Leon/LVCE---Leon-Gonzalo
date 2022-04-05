@@ -5,20 +5,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom'
 
-const onAdd = (totalItem) => {
-  alert(`Agregaste ${totalItem} productos`);
-};
+
+
+
+
 
 export default function MultiActionAreaCard({props}) {
-  const { title, price, brand, img, stock, id } = props
+  const { title, price, brand, img, category, stock, id } = props
   return (
-    <Card sx={{ maxWidth: 300, minWidth:300, maxHeight: 400, minHeight: 400}}>
+    <Card sx={{ maxWidth: 300, minWidth:300, maxHeight: 320, minHeight: 320, marginTop:5,}}>
       <CardActionArea>
         <CardMedia>
         <img src={`./${img}`} alt="{img}" />
         </CardMedia>
-        <CardContent>
+        <CardContent className='cardContent__detail'>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
@@ -28,11 +30,11 @@ export default function MultiActionAreaCard({props}) {
           <Typography variant="body2" color="text.secondary">
             {brand}
           </Typography>
+          <Button>
+            <Link to={`/${category}/${id}`}>Ver mas</Link>
+          </Button>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-      <ItemCount onAdd={onAdd} />
-      </CardActions>
     </Card>
   );
 }

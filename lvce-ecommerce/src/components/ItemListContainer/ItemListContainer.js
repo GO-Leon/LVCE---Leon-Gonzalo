@@ -29,13 +29,15 @@ const ProductList = () => {
 
     return (
         <div className="cardContainer">
-            <h2>Productos Destacados</h2>
-            {items.map( ( item ) => {
+            <div className='cardContainer__div'>
+              {items.map( ( item ) => {
                 const {id} = item
                 return(
                     <ItemCard props={item} key={id}/>
                 )
-            })}
+            })}  
+            </div>
+
         </div>
 
 
