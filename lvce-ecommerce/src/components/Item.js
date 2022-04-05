@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 export default function MultiActionAreaCard({props}) {
   const { title, price, brand, img, category, stock, id } = props
   return (
-    <Card sx={{ maxWidth: 300, minWidth:300, maxHeight: 320, minHeight: 320, marginTop:5,}}>
+    <Card sx={{ maxWidth: 300, minWidth:300, maxHeight: 320, minHeight: 320, marginTop: 2, marginLeft:0.5, marginRight:0.5,}}>
       <CardActionArea>
         <CardMedia>
         <img src={`./${img}`} alt="{img}" />

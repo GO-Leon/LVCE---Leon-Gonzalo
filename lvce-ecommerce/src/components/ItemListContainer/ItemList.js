@@ -116,3 +116,5 @@ export const itemList = [
         detail: "Secado rapido de vegetales",
       },
   ];
+
+  export default itemList
