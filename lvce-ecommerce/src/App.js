@@ -7,6 +7,7 @@ import DetailPage from './Pages/DetailPage';
 import ContactPage from './Pages/ContactPage';
 import ProductsPage from './Pages/ProductsPage';
 import AboutUsPage from './Pages/AboutUsPage';
+import CartPage from './Pages/CartPage';
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/nosotros" element={<AboutUsPage />}/>
           <Route path="/:category/:id" element={<DetailPage />}/>
           <Route path="*" element={<NotFoundPage />}/>
+          <Route path="/cart" element={<CartPage />}/>
         </Routes>
       </BrowserRouter>
 
