@@ -8,6 +8,7 @@ import ContactPage from './Pages/ContactPage';
 import ProductsPage from './Pages/ProductsPage';
 import AboutUsPage from './Pages/AboutUsPage';
 import CartPage from './Pages/CartPage';
+import CartProvider from './components/Context/CartContext';
 
 
 
@@ -15,6 +16,7 @@ import CartPage from './Pages/CartPage';
 function App() {
   return (
     <div className="App">
+      <CartProvider>
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>
@@ -28,7 +30,7 @@ function App() {
           <Route path="/cart" element={<CartPage />}/>
         </Routes>
       </BrowserRouter>
-
+      </CartProvider>
     </div>
   );
 }

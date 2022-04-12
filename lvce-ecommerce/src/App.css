@@ -51,9 +51,43 @@
 .navCart p{
   font-size: x-large;
   color: whitesmoke;
+  margin-left: 0.5rem;
 
 }
 
+.cartModal p{
+  text-align: center;
+
+}
+.cartList{
+  display: flex;
+  min-width: 32;
+  max-width: 32;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+
+.cartList__img img{
+  max-width: 6rem;
+  max-height: 6rem;
+  min-width: 6rem;
+  max-height: 6rem;
+}
+
+.cartList__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.cartList__info p{
+  text-align: center;
+  margin: 0.5vh;
+}
 
 .cardContainer{
   margin-top: 1rem;
