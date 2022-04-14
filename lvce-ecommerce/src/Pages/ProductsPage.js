@@ -1,11 +1,12 @@
-import ProductList from "../components/ItemListContainer/ItemListContainer"
+import ProductList from "../components/ItemListContainer/ItemListContainer";
 
 const ProductsPage = () => {
-    return(
-        <><h2>Ofertas del mes</h2>
-        <ProductList /></>
+  return (
+    <>
+      <h2>Ofertas del mes</h2>
+      <ProductList />
+    </>
+  );
+};
 
-    )
-}
-
-export default ProductsPage
+export default ProductsPage;
