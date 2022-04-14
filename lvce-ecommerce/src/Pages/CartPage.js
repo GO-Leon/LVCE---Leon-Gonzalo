@@ -4,9 +4,11 @@ import { useContext, useState } from "react";
 import Divider from "@mui/material/Divider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CartContext } from "../components/Context/CartContext";
+import { Button } from "@mui/material";
 
 const CartPage = () => {
-  const { cartProducts, deleteProduct, totalCart } = useContext(CartContext);
+  const { cartProducts, deleteProduct, totalCart, clearCart } =
+    useContext(CartContext);
 
   return (
     <div className="cartPage__col">
@@ -40,6 +42,7 @@ const CartPage = () => {
               );
             })}
             <h2>Total ${totalCart()}</h2>
+            <Button onClick={() => clearCart()}>Borrar todo</Button>
           </div>
         ) : (
           <div className="noProducts__cart">
