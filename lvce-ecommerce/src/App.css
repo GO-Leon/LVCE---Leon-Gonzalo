@@ -40,7 +40,7 @@
 .navItems__section{
   display: flex;
   text-decoration: none;
-  color: whitesmoke;
+  color: #f5f5f5;
   justify-content: space-between;
   align-items: center;
 }
