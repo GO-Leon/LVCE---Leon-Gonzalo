@@ -37,6 +37,31 @@
   font-size: 1rem;
 }
 
+.navItems__section{
+  display: flex;
+  text-decoration: none;
+  color: whitesmoke;
+  justify-content: space-between;
+  align-items: center;
+}
+.navItems__section .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  padding: 0;
+  min-width: 0;
+  margin-left: 0.25vw;
+}
+
+.navItems__section--button{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.navItems__MenuItem{
+  text-decoration: none;
+  color: #b5787a;
+
+}
+
+
 .cartLogo {
   max-height: 2rem;
 }
@@ -55,6 +80,10 @@
 
 .cartModal p {
   text-align: center;
+}
+
+.css-1u2t9ls-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper:before {
+  left: 95%;
 }
 .cartList {
   display: flex;
