@@ -13,7 +13,7 @@ const ProductList = () => {
   const getProducts = async () => {
     const ItemsCollection = collection(db, "productos");
     const productosSnapshot = await getDocs(ItemsCollection);
-    console.log("hahaha", productosSnapshot);
+    console.log("snap de productos", productosSnapshot);
     const productsDb = productosSnapshot.docs.map((doc) => {
       let product = doc.data();
       product.id = doc.id;

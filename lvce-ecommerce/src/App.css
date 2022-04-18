@@ -115,6 +115,51 @@
   margin: 0.5vh;
 }
 
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  display: flex;
+  border: #fcabae 0.5rem solid;
+  border-radius: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 30vh;
+  min-width: 40vw;
+  align-items: center;
+}
+.modalCart{
+  display: flex;
+  margin: 1rem;
+  background-color: #d6d4d4;
+  border-radius: 2rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 28vh;
+  align-items: center;
+  min-width: 90%;
+}
+
+.modalCart__form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100%;
+}
+
+.modalCart__form input{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: #b5787a 0.1rem solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  min-height: 90%;
+  min-width: 90%;
+  margin: 1rem;
+}
+
 .cardContainer {
   margin-top: 1rem;
   display: flex;

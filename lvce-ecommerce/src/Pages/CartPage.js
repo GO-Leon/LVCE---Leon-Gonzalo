@@ -1,14 +1,70 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+import { addDoc, collection } from 'firebase/firestore';
 import Divider from "@mui/material/Divider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CartContext } from "../components/Context/CartContext";
 import { Button } from "@mui/material";
+import ModalCart from "../components/Modal/ModalCart";
+import db from "../Firebase";
 
 const CartPage = () => {
-  const { cartProducts, deleteProduct, totalCart, clearCart } =
-    useContext(CartContext);
+  const currentDate = new Date();
+  const date = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`;
+  const { cartProducts, deleteProduct, totalCart, clearCart } = useContext(CartContext);
+  const [openModal, setOpenModal] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',  
+    email: '',
+})
+  const [order, setOrder] = useState(
+    {
+      buyer: formData,
+      items: cartProducts.map( (cartProduct)=> {
+        return {
+          id: cartProduct.item.id,
+          title: cartProduct.item.title,
+          price: cartProduct.item.price
+        }
+      }),
+      total: totalCart(),
+      fecha: date
+    }
+  )
+  console.log("tu compra" , order)
+
+  const [successOrder, setSuccessOrder] = useState()
+
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      let prevOrder = {...order,
+          buyer: formData
+      }
+      setOrder({...order,
+          buyer: formData})
+      pushOrder(prevOrder)
+  }
+
+  const pushOrder = async (prevOrder) => {
+      const orderFirebase = collection(db, 'orders')
+      const orderDoc = await addDoc(orderFirebase, prevOrder)
+      setSuccessOrder(orderDoc.id)
+      console.log("orden guardada: ", orderDoc.id)
+      
+  }
+
+  const handleChange = (e) => {
+      const {value, name} = e.target
+
+      setFormData({
+          ...formData,
+          [name]: value
+      })
+  }
+
+
 
   return (
     <div className="cartPage__col">
@@ -42,7 +98,10 @@ const CartPage = () => {
               );
             })}
             <h2>Total ${totalCart()}</h2>
-            <Button onClick={() => clearCart()}>Borrar todo</Button>
+            <section className="cartPage__bottom">
+              <Button onClick={() => setOpenModal(true)}>Continuar compra</Button>
+              <Button onClick={() => clearCart()}>Borrar todo</Button>
+            </section>
           </div>
         ) : (
           <div className="noProducts__cart">
@@ -53,6 +112,35 @@ const CartPage = () => {
           </div>
         )}
       </div>
+      <ModalCart handleClose={() => setOpenModal(false)} open={openModal}>
+          {successOrder ? (
+            <div className="modalCart">
+              <h3>Orden generada correctamente</h3>
+              <p>Su numero de orden es: {successOrder}</p>
+            </div>
+            ) : (
+              <div className="modalCart">
+             <h2>Datos para contacto</h2>
+              <form onSubmit={handleSubmit} className="modalCart__form">
+                            <input type="text" name='name' placeholder='Nombre completo' 
+                                onChange={handleChange} 
+                                value={formData.name}
+                            />
+                            <input type="number" name='phone' placeholder='Telefono' 
+                                onChange={handleChange} 
+                                value={formData.phone}
+                            />
+                            <input type="mail" name='email' placeholder='Ingrese su email' 
+                                onChange={handleChange} 
+                                value={formData.email}
+                            />
+
+                            <Button type="submit" className="form__btn">Enviar</Button>
+              </form>
+              </div>
+                )}
+                
+            </ModalCart>
     </div>
   );
 };
