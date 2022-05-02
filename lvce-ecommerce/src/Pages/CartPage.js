@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from 'firebase/firestore';
 import Divider from "@mui/material/Divider";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -64,7 +65,12 @@ const CartPage = () => {
       })
   }
 
-
+  ////// NAVEGAR A HOME LUEGO DE FINALIZAR COMPRA
+  /*const navigate = useNavigate();
+  const Buyed = () => {
+    navigate(`/`);
+  };
+*/
 
   return (
     <div className="cartPage__col">

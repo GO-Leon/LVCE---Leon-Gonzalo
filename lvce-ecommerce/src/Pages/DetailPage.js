@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import ItemCount from "../components/ItemCount";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-//import { itemList } from "../components/ItemListContainer/ItemList";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../components/Context/CartContext";

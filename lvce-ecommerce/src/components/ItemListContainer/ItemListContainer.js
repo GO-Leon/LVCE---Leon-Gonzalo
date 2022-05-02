@@ -1,8 +1,6 @@
-import { dividerClasses } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemCard from "../Item";
-//import { itemList } from "./ItemList";
 import db from "../../Firebase";
 import { collection, getDocs } from "firebase/firestore";
 
