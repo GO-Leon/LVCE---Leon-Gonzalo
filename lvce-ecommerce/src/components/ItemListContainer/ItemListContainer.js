@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import ItemCard from "../Item";
 import db from "../../Firebase";
 import { collection, getDocs } from "firebase/firestore";
+import loadLogo from '../../media/loading.gif'
+
 
 const ProductList = () => {
   const [items, setItems] = useState([]);
   const { category } = useParams();
+  const [loading , setLoading] = useState(true)
 
   const getProducts = async () => {
     const ItemsCollection = collection(db, "productos");
@@ -23,7 +26,9 @@ const ProductList = () => {
 
   useEffect(() => {
     setItems([]);
+    setLoading(true)
     getProducts().then((productos) => {
+      setLoading(false)
       category ? filterCategory(productos, category) : setItems(productos);
     });
   }, [category]);
@@ -38,12 +43,19 @@ const ProductList = () => {
 
   return (
     <div className="cardContainer">
-      <div className="cardContainer__div">
+      {loading ? 
+                (<div className='loadingScreen'>
+                  <img src={loadLogo} alt="loading" />
+                </div>)  
+        : 
+                (<div className="cardContainer__div">
         {items.map((item) => {
           const { id } = item;
-          return <ItemCard props={item} key={id} />;
+          return <ItemCard props={item} key={id} className="cardHover"/>;
         })}
-      </div>
+      </div>)
+      }
+
     </div>
   );
 };

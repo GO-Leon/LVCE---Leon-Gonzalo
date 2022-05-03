@@ -3,17 +3,20 @@ import Button from "@mui/material/Button";
 import ItemCount from "../components/ItemCount";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../components/Context/CartContext";
 import db from "../Firebase";
 import { doc, getDoc, getDocs } from "firebase/firestore";
+import loadLogo from '../media/loading.gif'
 
 function DetailPage() {
   const { id, category } = useParams();
   const [product, setProduct] = useState({});
   const [fullCart, setFullCart] = useState(false);
   const navigate = useNavigate();
+  const [loading , setLoading] = useState(true)
 
   const getProduct = async () => {
     const docRef = doc(db, "productos", id);
@@ -30,7 +33,10 @@ function DetailPage() {
   };
 
   useEffect(() => {
-    getProduct();
+    setLoading(true)
+    getProduct() .then(() => {
+      setLoading(false);
+    })
   }, [id]);
 
   const { addToCart } = useContext(CartContext);
@@ -46,13 +52,19 @@ function DetailPage() {
 
   return (
     <div className="detailItems__container">
-      <img src={`../../${product.detailImg}`} alt="{img}" />
+            {loading ? 
+                (<div className='loadingScreen__detail'>
+                  <img src={loadLogo} alt="loading" />
+                </div>)  
+        : 
+        (<>
+        <img src={`../../${product.detailImg}`} alt="{img}" className="mainImg" />
       <div className="detailItems__container--column">
         <h1>{product.title}</h1>
         <p className="info__subtitle">Linea</p>
         <ul className="productColor">
           {product.colors?.map((color) => {
-            return <li style={{ background: `${color.hex}` }}></li>;
+            return <Link to={`/${product.category}/${color.id}`} style={{ background: `${color.hex}` }}> {color.brand} </Link>;
           })}
         </ul>
         <h2>$ {product.price}</h2>
@@ -71,6 +83,11 @@ function DetailPage() {
           )}
         </section>
       </div>
+        </>
+          
+        )
+
+          }
     </div>
   );
 }

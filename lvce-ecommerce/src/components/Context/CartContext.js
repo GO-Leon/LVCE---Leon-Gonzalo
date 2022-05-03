@@ -25,11 +25,12 @@ const CartProvider = ({ children }) => {
     localStorage.removeItem("carrito")
   };
 
-  const deleteProduct = (id) => {
+  const deleteProduct = (id, countCart) => {
     const cartUpdate = cartProducts.filter((element) => element.item.id !== id);
     setCartProducts(cartUpdate);
     console.log("updatecarro", cartUpdate);
-    localStorage.removeItem("carrito", cartUpdate)
+    localStorage.removeItem("carrito");
+    localStorage.setItem("carrito", JSON.stringify(cartUpdate))
 
   };
 
