@@ -9,14 +9,14 @@ import { useContext } from "react";
 import { CartContext } from "../components/Context/CartContext";
 import db from "../Firebase";
 import { doc, getDoc, getDocs } from "firebase/firestore";
-import loadLogo from '../media/loading.gif'
+import loadLogo from "../media/loading.gif";
 
 function DetailPage() {
   const { id, category } = useParams();
   const [product, setProduct] = useState({});
   const [fullCart, setFullCart] = useState(false);
   const navigate = useNavigate();
-  const [loading , setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const getProduct = async () => {
     const docRef = doc(db, "productos", id);
@@ -33,10 +33,10 @@ function DetailPage() {
   };
 
   useEffect(() => {
-    setLoading(true)
-    getProduct() .then(() => {
+    setLoading(true);
+    getProduct().then(() => {
       setLoading(false);
-    })
+    });
   }, [id]);
 
   const { addToCart } = useContext(CartContext);
@@ -52,42 +52,52 @@ function DetailPage() {
 
   return (
     <div className="detailItems__container">
-            {loading ? 
-                (<div className='loadingScreen__detail'>
-                  <img src={loadLogo} alt="loading" />
-                </div>)  
-        : 
-        (<>
-        <img src={`../../${product.detailImg}`} alt="{img}" className="mainImg" />
-      <div className="detailItems__container--column">
-        <h1>{product.title}</h1>
-        <p className="info__subtitle">Linea</p>
-        <ul className="productColor">
-          {product.colors?.map((color) => {
-            return <Link to={`/${product.category}/${color.id}`} style={{ background: `${color.hex}` }}> {color.brand} </Link>;
-          })}
-        </ul>
-        <h2>$ {product.price}</h2>
-        <p>{product.detail}</p>
-        <section className="detailItems__buy">
-          {fullCart ? (
-            <Button
-              variant="contained"
-              className="fullCartButton"
-              onClick={goToCart}
-            >
-              Finalizar Compra
-            </Button>
-          ) : (
-            <ItemCount onAdd={onAdd} />
-          )}
-        </section>
-      </div>
+      {loading ? (
+        <div className="loadingScreen__detail">
+          <img src={loadLogo} alt="loading" />
+        </div>
+      ) : (
+        <>
+          <img
+            src={`../../${product.detailImg}`}
+            alt="{img}"
+            className="mainImg"
+          />
+          <div className="detailItems__container--column">
+            <h1>{product.title}</h1>
+            <p className="info__subtitle">Linea</p>
+            <ul className="productColor">
+              {product.colors?.map((color) => {
+                return (
+                  <Link
+                    to={`/${product.category}/${color.id}`}
+                    style={{ background: `${color.hex}` }}
+                    className="detailColors"
+                  >
+                    {" "}
+                    {color.brand}{" "}
+                  </Link>
+                );
+              })}
+            </ul>
+            <h2>$ {product.price}</h2>
+            <p>{product.detail}</p>
+            <section className="detailItems__buy">
+              {fullCart ? (
+                <Button
+                  variant="contained"
+                  className="fullCartButton"
+                  onClick={goToCart}
+                >
+                  Finalizar Compra
+                </Button>
+              ) : (
+                <ItemCount onAdd={onAdd} />
+              )}
+            </section>
+          </div>
         </>
-          
-        )
-
-          }
+      )}
     </div>
   );
 }

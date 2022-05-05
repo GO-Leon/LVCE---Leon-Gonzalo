@@ -1,12 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
-import Button from '@mui/material/Button';
+import React from "react";
+import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const ItemCount = ({ onAdd }) => {
   const initial = 1;
-  const stock = 4; 
+  const stock = 4;
 
- 
   const [totalItem, setTotalItem] = useState(initial);
 
   const addItem = (num) => {
@@ -30,13 +29,15 @@ const ItemCount = ({ onAdd }) => {
           +
         </button>
       </div>
-      <Button variant="contained" className="addCartButton"
+      <Button
+        variant="contained"
+        className="addCartButton"
         onClick={() => onAdd(totalItem)}
         disabled={stock === 0 ? true : null}
-        sx={{ marginBottom:1, backgroundColor:'#fcabae'}}
-        >
+        sx={{ marginBottom: 1, backgroundColor: "#fcabae" }}
+      >
         Agregar
-        </Button>
+      </Button>
     </div>
   );
 };

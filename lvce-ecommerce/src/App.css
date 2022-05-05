@@ -37,30 +37,28 @@
   font-size: 1rem;
 }
 
-.navItems__section{
+.navItems__section {
   display: flex;
   text-decoration: none;
   color: #f5f5f5;
   justify-content: space-between;
   align-items: center;
 }
-.navItems__section .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+.navItems__section .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
   padding: 0;
   min-width: 0;
   margin-left: 0.25vw;
 }
 
-.navItems__section--button{
+.navItems__section--button {
   text-decoration: none;
   color: whitesmoke;
 }
 
-.navItems__MenuItem{
+.navItems__MenuItem {
   text-decoration: none;
   color: #b5787a;
-
 }
-
 
 .cartLogo {
   max-height: 2rem;
@@ -115,7 +113,7 @@
   margin: 0.5vh;
 }
 
-.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   display: flex;
   border: #fcabae 0.5rem solid;
   border-radius: 2rem;
@@ -125,7 +123,7 @@
   min-width: 40vw;
   align-items: center;
 }
-.modalCart{
+.modalCart {
   display: flex;
   margin: 1rem;
   background-color: #d6d4d4;
@@ -137,7 +135,7 @@
   min-width: 90%;
 }
 
-.modalCart__form{
+.modalCart__form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -145,7 +143,7 @@
   min-width: 100%;
 }
 
-.modalCart__form input{
+.modalCart__form input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -214,7 +212,7 @@
   padding-top: 1rem;
 }
 
-.loadingScreen{
+.loadingScreen {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,7 +220,7 @@
   height: 75vh;
 }
 
-.loadingScreen img{
+.loadingScreen img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,12 +240,15 @@
 .countContainer {
   background-color: #dddddd;
   width: 100%;
+  max-width: 12vw;
+  border-radius: 1rem;
 }
 .countContainer__div {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  max-width: 12vw;
 }
 
 .addCartButton {
@@ -265,13 +266,12 @@
   margin-top: 1rem;
 }
 
-.loadingScreen__detail{
+.loadingScreen__detail {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 30rem;
   min-height: 30rem;
-
 }
 
 .detailItems__container .mainImg {
@@ -279,8 +279,7 @@
   max-height: 30rem;
   border: solid 4px #fcabae;
   border-radius: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem;
 }
 
 .detailItems__container--column {
@@ -288,6 +287,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1rem;
 }
 
 .detailItems__buy {
@@ -309,19 +309,23 @@
   background-color: #9e9e9e;
 }
 
-ul.productColor {
-  padding-left: 0px;
-  list-style: none;
-  margin: 10px 0px;
+.productColor {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  min-width: 20vw;
+  padding-left: 0;
 }
 
-ul.productColor li {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid black;
-  margin-right: 10px;
+.detailColors {
+  border-radius: 1rem;
+  text-decoration: none;
+  min-width: 5vw;
+  color: black;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-1gc72ps-MuiPaper-root-MuiCard-root {
+  margin-bottom: 0.5rem;
 }
 
 .contact__column {
