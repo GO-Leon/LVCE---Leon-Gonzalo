@@ -9,13 +9,14 @@ import ProductsPage from './Pages/ProductsPage';
 import AboutUsPage from './Pages/AboutUsPage';
 import CartPage from './Pages/CartPage';
 import CartProvider from './components/Context/CartContext';
+import Footer from './components/Footer';
 
 
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App background">
       <CartProvider>
       <BrowserRouter>
         <NavBar></NavBar>
@@ -31,6 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       </CartProvider>
+      <Footer />
     </div>
   );
 }

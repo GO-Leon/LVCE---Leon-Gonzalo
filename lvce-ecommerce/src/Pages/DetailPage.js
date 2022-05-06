@@ -10,6 +10,8 @@ import { CartContext } from "../components/Context/CartContext";
 import db from "../Firebase";
 import { doc, getDoc, getDocs } from "firebase/firestore";
 import loadLogo from "../media/loading.gif";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 function DetailPage() {
   const { id, category } = useParams();
@@ -17,6 +19,7 @@ function DetailPage() {
   const [fullCart, setFullCart] = useState(false);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [openSnack, setOpenSnack] = React.useState(false);
 
   const getProduct = async () => {
     const docRef = doc(db, "productos", id);
@@ -44,11 +47,25 @@ function DetailPage() {
   const onAdd = (countCart) => {
     addToCart(product, countCart);
     setFullCart(true);
+    console.log("es estaaaaaaaaaaaaa")
+    addSnack()
+    
   };
+
+  const addSnack = () => {
+    setOpenSnack(true);
+    setTimeout( () => {
+      setOpenSnack(false)
+    }, 2000);
+  }
 
   const goToCart = () => {
     navigate(`/cart`);
   };
+
+  const AlertCart = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 
   return (
@@ -99,6 +116,11 @@ function DetailPage() {
           </div>
         </>
       )}
+      <Snackbar open={openSnack} autoHideDuration={6000}>
+        <AlertCart severity="success" sx={{ width: '100%' }}>
+        {product.title} agregado al carrito !
+        </AlertCart>
+      </Snackbar>
     </div>
   );
 }

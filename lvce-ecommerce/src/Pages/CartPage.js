@@ -53,12 +53,10 @@ const CartPage = () => {
       const orderFirebase = collection(db, 'orders')
       const orderDoc = await addDoc(orderFirebase, prevOrder)
       if(formData.name.length < 3 || formData.phone.length < 9 || formData.email.length < 9) {
-      console.log("noooooooooouuuuuuuuuuuuu")
       } else {
         setSuccessOrder(orderDoc.id)
         console.log("orden guardada: ", orderDoc.id)
-        console.log("seeeeeeeeee")
-        clearCart()
+        Buyed()
 
       }
 
@@ -80,8 +78,11 @@ const CartPage = () => {
   ////// NAVEGAR A HOME LUEGO DE FINALIZAR COMPRA
 const navigate = useNavigate();
   const Buyed = () => {
-    navigate(`/`);
-  };
+    setTimeout( () => {
+    navigate(`/`)
+    clearCart()
+  }, 3000);
+}
 
 
   return (
