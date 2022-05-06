@@ -9,8 +9,7 @@ import CartLogo from "../../media/shopping-cart.png";
 import { CartContext } from "../Context/CartContext";
 
 const CartWidget = () => {
-  const { cartProducts, deleteProduct, clearCart, quantity } =
-    useContext(CartContext);
+  const { cartProducts, deleteProduct, clearCart, quantity } =useContext(CartContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

@@ -49,6 +49,9 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  const stock = () => {
+    return cartProducts.reduce((acum, item) => (acum += item.quantity), 0);
+  };
 
   console.log(cartProducts);
   const data = {

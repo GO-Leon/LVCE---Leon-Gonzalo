@@ -435,6 +435,29 @@
   background-color: #9e9e9e;
 }
 
+.itemCount__btn {
+  color: #f6a5a8;
+  background-color: whitesmoke;
+  border: 2px solid #f6a5a8;
+  border-radius: 1rem;
+  cursor: pointer;
+  width: 3vw;
+  height: 3vh;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.itemCount__btn--false {
+  color: #2f2f2f;
+  background-color: #b9b9b9;
+  border: 2px solid #2f2f2f;
+  border-radius: 1rem;
+  width: 3vw;
+  height: 3vh;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .showCart {
   display: flex;
 }
