@@ -49,6 +49,7 @@ const CartProvider = ({ children }) => {
     );
   };
 
+
   console.log(cartProducts);
   const data = {
     cartProducts,

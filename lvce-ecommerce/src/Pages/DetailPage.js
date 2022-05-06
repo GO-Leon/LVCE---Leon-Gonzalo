@@ -50,6 +50,7 @@ function DetailPage() {
     navigate(`/cart`);
   };
 
+
   return (
     <div className="detailItems__container">
       {loading ? (
@@ -65,14 +66,14 @@ function DetailPage() {
           />
           <div className="detailItems__container--column">
             <h1>{product.title}</h1>
-            <p className="info__subtitle">Linea</p>
+            <h3 className="info__subtitle">Linea</h3>
             <ul className="productColor">
               {product.colors?.map((color) => {
                 return (
                   <Link
                     to={`/${product.category}/${color.id}`}
-                    style={{ background: `${color.hex}` }}
-                    className="detailColors"
+                    style={{ background: `${color.hex}`, border:`${color.active}` }}
+                    className="detailColors" 
                   >
                     {" "}
                     {color.brand}{" "}

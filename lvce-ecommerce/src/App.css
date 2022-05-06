@@ -323,6 +323,10 @@
   min-width: 5vw;
   color: black;
 }
+.detailColors-active{
+  border: 2px solid #000000;
+  border-radius: 1.5rem;
+}
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-1gc72ps-MuiPaper-root-MuiCard-root {
   margin-bottom: 0.5rem;

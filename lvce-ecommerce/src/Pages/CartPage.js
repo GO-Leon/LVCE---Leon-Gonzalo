@@ -20,6 +20,7 @@ const CartPage = () => {
     phone: '',  
     email: '',
 })
+
   const [order, setOrder] = useState(
     {
       buyer: formData,
@@ -51,8 +52,16 @@ const CartPage = () => {
   const pushOrder = async (prevOrder) => {
       const orderFirebase = collection(db, 'orders')
       const orderDoc = await addDoc(orderFirebase, prevOrder)
-      setSuccessOrder(orderDoc.id)
-      console.log("orden guardada: ", orderDoc.id)
+      if(formData.name.length < 3 || formData.phone.length < 9 || formData.email.length < 9) {
+      console.log("noooooooooouuuuuuuuuuuuu")
+      } else {
+        setSuccessOrder(orderDoc.id)
+        console.log("orden guardada: ", orderDoc.id)
+        console.log("seeeeeeeeee")
+        clearCart()
+
+      }
+
       
   }
 
@@ -65,12 +74,15 @@ const CartPage = () => {
       })
   }
 
+
+
+
   ////// NAVEGAR A HOME LUEGO DE FINALIZAR COMPRA
-  /*const navigate = useNavigate();
+const navigate = useNavigate();
   const Buyed = () => {
     navigate(`/`);
   };
-*/
+
 
   return (
     <div className="cartPage__col">
@@ -131,15 +143,18 @@ const CartPage = () => {
                             <input type="text" name='name' placeholder='Nombre completo' 
                                 onChange={handleChange} 
                                 value={formData.name}
+                                 
                             />
                             <input type="number" name='phone' placeholder='Telefono' 
                                 onChange={handleChange} 
                                 value={formData.phone}
                             />
-                            <input type="mail" name='email' placeholder='Ingrese su email' 
+                            <input type="email" name='email' placeholder='Ingrese su email' 
                                 onChange={handleChange} 
                                 value={formData.email}
                             />
+
+                            {}
 
                             <Button type="submit" className="form__btn">Enviar</Button>
               </form>
