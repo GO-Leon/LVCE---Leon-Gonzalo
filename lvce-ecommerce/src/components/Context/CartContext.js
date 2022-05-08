@@ -7,7 +7,7 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, countCart) => {
     if (isInCart(product.id)) {
       alert(
-        `El producto ya se encuentra en el carrito, antes agregaste ${countCart} ${product.title} al carrito`
+        `El producto ya se encuentra en el carrito, antes agregaste ${product.title} al carrito`
       );
     } else {
       console.log(`Agregaste ${countCart} ${product.title}`);
@@ -28,7 +28,7 @@ const CartProvider = ({ children }) => {
   const deleteProduct = (id, countCart) => {
     const cartUpdate = cartProducts.filter((element) => element.item.id !== id);
     setCartProducts(cartUpdate);
-    console.log("updatecarro", cartUpdate);
+    console.log("newCart", cartUpdate);
     localStorage.removeItem("carrito");
     localStorage.setItem("carrito", JSON.stringify(cartUpdate))
 

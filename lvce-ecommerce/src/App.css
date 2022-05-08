@@ -2,7 +2,7 @@
   text-align: center;
   background-image: url("../public/HomeBackground.jpg");
   min-height: 100vh;
-  min-width: 100vw;
+  max-width: 100vw;
 }
 
 .App-logo {
@@ -96,6 +96,37 @@
   margin-bottom: 1vh;
 }
 
+.cartList--empty {
+  display: flex;
+  min-width: 32;
+  max-width: 32;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1vh 1vw;
+
+}
+
+.cartList__btn {
+  text-decoration: none;
+  color: #fcabae;
+  background-color: whitesmoke;
+  border: 2px solid #fcabae;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.cartList__btn:hover {
+  color: whitesmoke;
+  background-color: #fcabae;
+}
+
+.cartEnd .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  text-decoration: none;
+  color: #fcabae;
+}
+
+
 .cartList__img img {
   max-width: 6rem;
   max-height: 6rem;
@@ -161,6 +192,22 @@
   margin: 1rem;
 }
 
+.modalCart__form .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  text-decoration: none;
+  color: #fcabae;
+  background-color: whitesmoke;
+  border: 2px solid #fcabae;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modalCart__form .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
+  color: whitesmoke;
+  background-color: #fcabae;
+
+}
+
 .cardContainer {
   margin-top: 1rem;
   display: flex;
@@ -176,6 +223,7 @@
   justify-content: space-around;
   min-width: 90%;
   max-width: 90%;
+  min-height: 72vh;
 }
 
 .cardHover :hover {
@@ -219,8 +267,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75vw;
-  height: 75vh;
+  width: 100vw;
+  height: 72vh;
+  background-color: rgba(255, 255, 255, 0.568);
 }
 
 .loadingScreen img {
@@ -363,12 +412,14 @@
 .cartPage__col {
   display: flex;
   flex-direction: column;
-  background-color: rgba(211, 211, 211, 0.356);
+  background-color: rgba(179, 179, 179, 0.356);
   justify-content: center;
   align-items: center;
   width: 90vw;
   margin: 5vh 5vw;
   border-radius: 2rem;
+  min-height: 50vh;
+  margin-bottom: 24vh;
 }
 
 .cartPage--row {
@@ -397,7 +448,10 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  color: rgb(138, 137, 137);
+  color: rgb(0, 0, 0);
+  background-color: rgba(245, 245, 245, 0.895);
+  border-radius: 2rem;
+  margin-top: 1rem;
 }
 
 .cartPage__detail--row img {
@@ -420,9 +474,31 @@
   margin-right: 2rem;
 }
 
+.cartPage__bottom .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  text-decoration: none;
+  color: whitesmoke;
+  background-color: #fcabae;
+  border: 2px solid #fcabae;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.cartPage__bottom .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+  color: #fcabae;
+  background-color: whitesmoke;
+
+}
+
+.cartPage__totalPrice {
+  background-color: rgba(245, 245, 245, 0.895);
+  padding: 1rem 0;
+
+}
+
 .noProducts__cart h2 {
   margin-bottom: 4vh;
-  color: rgb(138, 137, 137);
+  color: rgb(0, 0, 0);
 }
 
 .getProducts__link {
@@ -487,6 +563,7 @@
   max-height: 10vh;
   padding: 1rem 1rem;
   bottom: 0;
+  max-width: 100vw;
 }
 
 .footer__column{
@@ -504,4 +581,11 @@
 
 .footer__column h2{
   margin: 0;
+}
+
+.AboutUs__div {
+  min-height: 78vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

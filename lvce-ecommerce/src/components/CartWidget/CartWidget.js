@@ -21,7 +21,7 @@ const CartWidget = () => {
   console.log("cartProducts: ", cartProducts);
 
   return (
-    <div className={cartProducts.length >= 1 ? "showCart" : "hideCart"}>
+    <div className="showCart">
       <section className="navCart">
         <img
           src={CartLogo}
@@ -72,33 +72,43 @@ const CartWidget = () => {
       >
         <p>Tus Articulos</p>
         <Divider />
-        {cartProducts.map((cartProduct) => {
-          return (
-            <div className="cartList" key={cartProduct.item.id}>
-              <div className="cartList__img">
-                <img src={`../../${cartProduct.item.img}`} />
+        {cartProducts.length >= 1 ? (
+          <div>{cartProducts.map((cartProduct) => {
+            return (
+              <div className="cartList" key={cartProduct.item.id}>
+                <div className="cartList__img">
+                  <img src={`../../${cartProduct.item.img}`} />
+                </div>
+                <div className="cartList__info">
+                  <p>{cartProduct.item.title} </p>
+                  <p>Cantidad: {cartProduct.quantity} </p>
+                  <span> $ {cartProduct.item.price}</span>
+                </div>
+                <div>
+                  <DeleteIcon
+                    onClick={() => deleteProduct(cartProduct.item.id)}
+                  />
+                </div>
               </div>
-              <div className="cartList__info">
-                <p>{cartProduct.item.title} </p>
-                <p>Cantidad: {cartProduct.quantity} </p>
-                <span> $ {cartProduct.item.price}</span>
-              </div>
-              <div>
-                <DeleteIcon
-                  onClick={() => deleteProduct(cartProduct.item.id)}
-                />
-              </div>
+            );
+          })}
+  
+          <div className="cartEnd">
+            <Divider />
+            <Button>
+              <Link to="/cart" className="cartList__btn">Terminar Compra</Link>
+            </Button>
+            <Button className="cartList__btn" onClick={() => clearCart()}>Limpiar Articulos</Button>
+          </div>
+          </div>
+           ) : (
+            <div className="cartList--empty" >
+              <h3>No hay productos en tu lista</h3>
+              <Link to="/productos" className="cartList__btn">
+              Ver productos
+              </Link>
             </div>
-          );
-        })}
-
-        <Divider />
-        <div>
-          <Button>
-            <Link to="/cart">Terminar Compra</Link>
-          </Button>
-          <Button onClick={() => clearCart()}>Limpiar Articulos</Button>
-        </div>
+          )}
       </Menu>
     </div>
   );

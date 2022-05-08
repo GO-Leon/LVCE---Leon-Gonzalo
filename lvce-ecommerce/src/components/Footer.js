@@ -1,7 +1,6 @@
 import React from "react";
 import instagramLogo from "../media/instagram.png";
 import facebookLogo from "../media/facebook.png";
-import whLogo from "../media/whatsapp.png";
 
 const Footer = () => {
     return (

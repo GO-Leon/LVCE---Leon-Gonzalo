@@ -3,7 +3,7 @@ import ProductList from "../components/ItemListContainer/ItemListContainer";
 const ProductsPage = () => {
   return (
     <>
-      <h2>Ofertas del mes</h2>
+      <h2>Nuestro Catalogo</h2>
       <ProductList />
     </>
   );

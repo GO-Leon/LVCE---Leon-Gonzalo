@@ -19,6 +19,7 @@ const CartPage = () => {
     name: '',
     phone: '',  
     email: '',
+    emailRepeat: '',
 })
 
   const [order, setOrder] = useState(
@@ -52,7 +53,7 @@ const CartPage = () => {
   const pushOrder = async (prevOrder) => {
       const orderFirebase = collection(db, 'orders')
       const orderDoc = await addDoc(orderFirebase, prevOrder)
-      if(formData.name.length < 3 || formData.phone.length < 9 || formData.email.length < 9) {
+      if(formData.name.length < 3 || formData.phone.length < 9 || formData.email.length < 9 || formData.email != formData.emailRepeat ){
       } else {
         setSuccessOrder(orderDoc.id)
         console.log("orden guardada: ", orderDoc.id)
@@ -73,9 +74,6 @@ const CartPage = () => {
   }
 
 
-
-
-  ////// NAVEGAR A HOME LUEGO DE FINALIZAR COMPRA
 const navigate = useNavigate();
   const Buyed = () => {
     setTimeout( () => {
@@ -116,7 +114,7 @@ const navigate = useNavigate();
                 </div>
               );
             })}
-            <h2>Total ${totalCart()}</h2>
+            <h2 className="cartPage__totalPrice">Total ${totalCart()}</h2>
             <section className="cartPage__bottom">
               <Button onClick={() => setOpenModal(true)}>Continuar compra</Button>
               <Button onClick={() => clearCart()}>Borrar todo</Button>
@@ -154,10 +152,17 @@ const navigate = useNavigate();
                                 onChange={handleChange} 
                                 value={formData.email}
                             />
+                            <input type="emailRepeat" name='emailRepeat' placeholder='Repita su email' 
+                                onChange={handleChange} 
+                                value={formData.emailRepeat}
+                            />
+                            {formData.email === formData.emailRepeat ? (
+                              <p></p>
+                            ) : (
+                              <p>Las direcciones de correo ingresadas no coinciden</p>
+                            )}
 
-                            {}
-
-                            <Button type="submit" className="form__btn">Enviar</Button>
+                            <Button type="submit">Enviar</Button>
               </form>
               </div>
                 )}

@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App background">
+    <div className="App">
       <CartProvider>
       <BrowserRouter>
         <NavBar></NavBar>

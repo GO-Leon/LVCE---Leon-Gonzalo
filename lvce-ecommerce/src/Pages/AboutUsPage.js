@@ -1,10 +1,10 @@
 
 const AboutUsPage = () => {
     return(
-        <div>
-            <p>
+        <div className="AboutUs__div">
+            <h2>
                 Vendedores de productos Essen, Villa Urquiza, CABA
-            </p>
+            </h2>
         </div>
 
     )

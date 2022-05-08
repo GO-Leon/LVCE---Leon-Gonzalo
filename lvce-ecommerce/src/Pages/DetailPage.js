@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../components/Context/CartContext";
 import db from "../Firebase";
-import { doc, getDoc, getDocs } from "firebase/firestore";
+import { doc, getDoc} from "firebase/firestore";
 import loadLogo from "../media/loading.gif";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -47,10 +47,10 @@ function DetailPage() {
   const onAdd = (countCart) => {
     addToCart(product, countCart);
     setFullCart(true);
-    console.log("es estaaaaaaaaaaaaa")
     addSnack()
     
   };
+
 
   const addSnack = () => {
     setOpenSnack(true);
@@ -110,7 +110,7 @@ function DetailPage() {
                   Finalizar Compra
                 </Button>
               ) : (
-                <ItemCount onAdd={onAdd} stockDetail={product.stock} />
+                <ItemCount onAdd={onAdd}/>
               )}
             </section>
           </div>
@@ -118,7 +118,7 @@ function DetailPage() {
       )}
       <Snackbar open={openSnack} autoHideDuration={6000}>
         <AlertCart severity="success" sx={{ width: '100%' }}>
-        {product.title} agregado al carrito !
+        Agregaste {product.title} al carrito !
         </AlertCart>
       </Snackbar>
     </div>

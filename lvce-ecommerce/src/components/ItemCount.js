@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 
-const ItemCount = ({ onAdd }, stockDetail) => {
+const ItemCount = ({ onAdd }) => {
   const initial = 1;
+  const stock = 4;
 
   const [totalItem, setTotalItem] = useState(initial);
 
@@ -13,46 +14,28 @@ const ItemCount = ({ onAdd }, stockDetail) => {
 
   return (
     <div className="countContainer">
-      <div className="countContainer__div">
-        {totalItem === initial ? (        
+      <div className="countContainer__div">     
         <button
           onClick={() => addItem(-1)}
           disabled={totalItem === initial ? true : null}
-          className="itemCount__btn--false"
+          className={totalItem === initial ? "itemCount__btn--false" : "itemCount__btn"}
         >
           -
-        </button>):(
-                  <button
-                  onClick={() => addItem(-1)}
-                  disabled={totalItem === initial ? true : null}
-                  className="itemCount__btn"
-                >
-                  -
-                </button>
-        )}
-        <h3>{totalItem}</h3>
-        {totalItem === stockDetail ? (        
+        </button>
+        <h3>{totalItem}</h3>      
         <button
         onClick={() => addItem(+1)}
-        disabled={totalItem === stockDetail ? true : null}
-        className="itemCount__btn--false"
+        disabled={totalItem === stock ? true : null}
+        className={totalItem === stock ? "itemCount__btn--false" : "itemCount__btn"}
       >
         +
-      </button>):(
-                  <button
-                  onClick={() => addItem(+1)}
-                  disabled={totalItem === stockDetail ? true : null}
-                  className="itemCount__btn"
-                >
-                  +
-                </button>
-        )}
+      </button>
       </div>
       <Button
         variant="contained"
         className="addCartButton"
         onClick={() => onAdd(totalItem)}
-        disabled={stockDetail === 0 ? true : null}
+        disabled={stock === 0 ? true : null}
         sx={{ marginBottom: 1, backgroundColor: "#fcabae" }}
       >
         Agregar
