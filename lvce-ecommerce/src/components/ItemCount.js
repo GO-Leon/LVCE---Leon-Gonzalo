@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 
-const ItemCount = ({ onAdd }) => {
+const ItemCount = ({ onAdd, stock }) => {
   const initial = 1;
-  const stock = 4;
 
   const [totalItem, setTotalItem] = useState(initial);
 

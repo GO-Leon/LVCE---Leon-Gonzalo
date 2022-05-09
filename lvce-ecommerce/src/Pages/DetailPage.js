@@ -110,7 +110,7 @@ function DetailPage() {
                   Finalizar Compra
                 </Button>
               ) : (
-                <ItemCount onAdd={onAdd}/>
+                <ItemCount onAdd={onAdd} stock={product.stock}/>
               )}
             </section>
           </div>

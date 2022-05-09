@@ -134,6 +134,8 @@ const navigate = useNavigate();
             <div className="modalCart">
               <h3>Orden generada correctamente</h3>
               <p>Su numero de orden es: {successOrder}</p>
+              <p>Un representante se comunicara con usted para finalizar la compra</p>
+              <h3>Muchas gracias !</h3>
             </div>
             ) : (
               <div className="modalCart">
